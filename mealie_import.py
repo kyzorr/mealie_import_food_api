@@ -1,8 +1,8 @@
 import json
 import requests
 
-MEALIE_URL = "<Your_URL>"
-API_KEY = "<YOUR_API-TOKEN>"
+MEALIE_URL = "<YOUR_MEALIE_URL>"
+API_KEY = "<YOUR_API_KEY>"
 JSON_URL = "https://raw.githubusercontent.com/mealie-recipes/mealie/refs/heads/mealie-next/mealie/repos/seed/resources/foods/locales/de-DE.json" #original language json -> https://github.com/mealie-recipes/mealie/tree/mealie-next/mealie/repos/seed/resources/foods/locales
 
 headers = {
