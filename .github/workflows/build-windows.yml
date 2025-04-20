@@ -40,8 +40,4 @@ jobs:
       uses: actions/upload-artifact@v4
       with:
         name: mealie_import_exe
-<<<<<<< HEAD
         path: dist/Food_import.exe
-=======
-        path: dist/Food_import.exe
->>>>>>> c0686964091c9889331b4417a8d77c640f64502f
