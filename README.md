@@ -1,117 +1,119 @@
-# Mealie Food Import Script (German below)
+# Mealie Lebensmittel Import/Export API
 
-This script imports foods into a Mealie instance using the Mealie API.
+## Deutsch
 
-## Prerequisites
+Dieses Projekt bietet eine API zum Importieren und Exportieren von Lebensmitteln aus einer [Mealie](https://mealie.io/) Instanz. Es verwendet die Mealie API, um Lebensmitteldaten zu verwalten.
 
-*   Python 3.6 or higher
-*   The `requests` library (`pip install requests`)
-*   A running Mealie instance
-*   An API key for your Mealie instance
+### Funktionen
 
-## Setup
+-   **Import**: Importiere Lebensmittel aus einer JSON-Datei in deine Mealie Instanz.
+-   **Export**: Exportiere alle Lebensmittel deiner Mealie Instanz als JSON-Datei.
 
-1.  **Download the Script:** Save `mealie_import.py` to a directory of your choice.
-2.  **Configuration:**
-    *   Open `mealie_import.py` in a text editor.
-    *   Replace `YOUR_MEALIE_URL` with your Mealie instance URL (e.g., `https://my-mealie-instance.com`).
-    *   Replace `YOUR_API_KEY` with your personal Mealie API key.
-3.  **JSON Source:**  
-    The script downloads food data from:  
-    `https://github.com/mealie-recipes/mealie/tree/mealie-next/mealie/repos/seed/resources/foods/locales`
-    *   The file `de-DE.json` contains German food names. You can change the URL to use another language file.
-4.  **API Endpoint:**  
-    The script uses the `/api/foods` endpoint to import foods.
+### Voraussetzungen
 
-## Usage
+-   Python 3.6 oder höher
+-   Eine laufende Mealie Instanz
+-   [requests](https://pypi.org/project/requests/) Python Bibliothek (Installation mit `pip install requests`)
 
-1.  Open a terminal or command prompt.
-2.  Navigate to the directory where you saved the script.
-3.  Run the script with `python mealie_import.py`.
-4.  The script will print the status of each import.
+### Konfiguration
 
-## Important Notes
+Erstelle eine `.env`-Datei im Projektverzeichnis und trage folgende Variablen ein:
 
-*   **API Key:** Make sure your API key has permission to create foods in your Mealie instance.
-*   **Data Structure:**  
-    The script expects the JSON file to provide a list of food objects in the following format:
+```
+
+MEALIE_URL=https://deine-mealie-url.de
+MEALIE_API_KEY=dein_api_key
+
+```
+
+### Verwendung
+
+1.  Installiere die benötigten Python Pakete:
 
     ```
-    {
-      "name": "Food Name",
-      "pluralName": "",
-      "description": "",
-      "extras": {},
-      "aliases": [],
-      "householdsWithIngredientFood": []
-    }
+    pip install requests
     ```
 
-    Adjust the script if your JSON source has a different structure.
-*   **Error Handling:**  
-    The script will print error messages if an import fails. Check the output to troubleshoot.
-*   **Rate Limiting:**  
-    Mealie may apply rate limits to API requests. If importing many foods, consider adding a short delay between requests (e.g., `time.sleep(0.1)`).
+2.  Konfiguriere die `.env`-Datei mit deiner Mealie URL und API Key.
+3.  Führe das Skript `main.py` mit den entsprechenden Argumenten aus:
 
-## Disclaimer
+    -   Um Lebensmittel zu importieren:
 
-This script is provided as-is, without warranty. Use at your own risk.
+        ```
+        python main.py --import &lt;pfad_zur_json_datei&gt;
+        ```
 
+    -   Um Lebensmittel zu exportieren:
 
----
----
----
+        ```
+        python main.py --export &lt;pfad_zur_export_datei&gt;
+        ```
 
-# Mealie Lebensmittel-Importskript
+### Beispiel-Export
 
-Dieses Skript importiert Lebensmittel in eine Mealie-Instanz mithilfe der Mealie-API.
+Eine Beispiel-JSON mit deutschen Lebensmitteln (`mealie_foods_export_de_DE.json`) ist im Repository enthalten. Diese Datei kann als Vorlage für den Import verwendet werden.
 
-## Voraussetzungen
+### Credits
 
-*   Python 3.6 oder höher
-*   `requests` Bibliothek (installiere mit `pip install requests`)
-*   Eine laufende Mealie-Instanz
-*   API-Key für deine Mealie-Instanz
+Dieses Projekt verwendet Daten und Konzepte aus dem [Mealie Projekt](https://mealie.io/). Ein besonderer Dank geht an den Ersteller von Mealie für die Bereitstellung dieser großartigen Rezeptverwaltungssoftware.
 
-## Einrichtung
+Die originalen Lebensmittel-JSON-Dateien für verschiedene Sprachen stammen aus dem offiziellen Mealie Repository: [Mealie Lebensmittel Lokalisierungen](https://github.com/mealie-recipes/mealie/tree/mealie-next/mealie/repos/seed/resources/foods/locales).
 
-1.  **Skript herunterladen:** Lade das Skript `mealie_import.py` in ein Verzeichnis deiner Wahl herunter.
-2.  **Konfiguration:**
-    *   Öffne die Datei `mealie_import.py` in einem Texteditor.
-    *   Ersetze `YOUR_MEALIE_URL` durch die URL deiner Mealie-Instanz (z.B. `https://meine-mealie-instanz.de`).
-    *   Ersetze `YOUR_API_KEY` durch deinen persönlichen Mealie-API-Key.
-3.  **JSON-Quelle:** Das Skript lädt die Lebensmitteldaten von:  
-    `https://github.com/mealie-recipes/mealie/tree/mealie-next/mealie/repos/seed/resources/foods/locales`
-    *   Die Datei `de-DE.json` enthält die deutschen Lebensmittelnamen. Du kannst die URL zu einer anderen Sprachdatei anpassen.
-4.  **API-Endpoint:** Das Skript verwendet den Mealie-API-Endpoint `/api/foods` zum Importieren der Lebensmittel.
+## English
 
-## Verwendung
+This project provides an API to import and export foods from a [Mealie](https://mealie.io/) instance. It uses the Mealie API to manage food data.
 
-1.  Öffne ein Terminal oder eine Kommandozeile.
-2.  Navigiere in das Verzeichnis, in dem du das Skript gespeichert hast.
-3.  Führe das Skript mit dem Befehl `python mealie_import.py` aus.
-4.  Das Skript gibt den Status jedes Imports aus.
+### Features
 
-## Wichtige Hinweise
+-   **Import**: Import foods from a JSON file into your Mealie instance.
+-   **Export**: Export all foods from your Mealie instance as a JSON file.
 
-*   **API-Key:** Stelle sicher, dass dein API-Key die Berechtigung hat, Lebensmittel in deiner Mealie-Instanz anzulegen.
-*   **Datenstruktur:** Das Skript geht davon aus, dass die JSON-Datei eine Liste von Lebensmittelobjekten im folgenden Format enthält:
+### Requirements
+
+-   Python 3.6 or higher
+-   A running Mealie instance
+-   [requests](https://pypi.org/project/requests/) Python library (Install with `pip install requests`)
+
+### Configuration
+
+Create a `.env` file in the project directory and enter the following variables:
+
+```
+
+MEALIE_URL=https://your-mealie-url.com
+MEALIE_API_KEY=your_api_key
+
+```
+
+### Usage
+
+1.  Install the required Python packages:
 
     ```
-    {
-      "name": "Lebensmittelname",
-      "pluralName": "",
-      "description": "",
-      "extras": {},
-      "aliases": [],
-      "householdsWithIngredientFood": []
-    }
+    pip install requests
     ```
 
-    Passe das Skript an, wenn deine JSON-Datei eine andere Struktur hat.
-*   **Fehlerbehandlung:** Das Skript gibt Fehlermeldungen aus, wenn ein Import fehlschlägt. Überprüfe die Meldungen, um das Problem zu beheben.
-*   **Ratenbegrenzung:** Mealie kann eine Ratenbegrenzung für API-Anfragen haben. Wenn du viele Lebensmittel importierst, kann es sinnvoll sein, eine kurze Pause zwischen den Anfragen einzubauen (z.B. mit `time.sleep(0.1)`).
+2.  Configure the `.env` file with your Mealie URL and API key.
+3.  Run the `main.py` script with the appropriate arguments:
 
-## Disclaimer
+    -   To import foods:
 
-Dieses Skript wird ohne Gewähr zur Verfügung gestellt. Die Verwendung erfolgt auf eigene Gefahr.
+        ```
+        python main.py --import &lt;path_to_json_file&gt;
+        ```
+
+    -   To export foods:
+
+        ```
+        python main.py --export &lt;path_to_export_file&gt;
+        ```
+
+### Example Export
+
+A sample JSON file with German foods (`mealie_foods_export_de_DE.json`) is included in the repository. This file can be used as a template for importing.
+
+### Credits
+
+This project uses data and concepts from the [Mealie Project](https://mealie.io/). Special thanks to the creator of Mealie for providing this great recipe management software.
+
+The original food JSON files for various languages come from the official Mealie repository: [Mealie Food Localizations](https://github.com/mealie-recipes/mealie/tree/mealie-next/mealie/repos/seed/resources/foods/locales).
