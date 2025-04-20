@@ -21,23 +21,25 @@ jobs:
       run: |
         python -m pip install --upgrade pip
         pip install pyinstaller requests python-dotenv
-
-    - name: Build executable with PyInstaller
+#create food_export.exe
+    - name: Build executable with PyInstaller (Export)
       run: |
-        pyinstaller --onefile export_foods.py
-
-    - name: Upload executable as artifact
+        pyinstaller --onefile --name Food_export export_foods.py
+    
+    - name: Upload executable as artifact (Export)
       uses: actions/upload-artifact@v4
       with:
         name: mealie_export_exe
         path: dist/Food_export.exe
 
-    - name: Build executable with PyInstaller
+#create food_import.exe
+    - name: Build executable with PyInstaller (Import)
       run: |
-        pyinstaller --onefile mealie_import.py
-
-    - name: Upload executable as artifact
+        pyinstaller --onefile --name Food_import mealie_import.py
+    
+    - name: Upload executable as artifact (Import)
       uses: actions/upload-artifact@v4
       with:
         name: mealie_import_exe
         path: dist/Food_import.exe
+      
