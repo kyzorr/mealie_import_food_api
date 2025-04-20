@@ -118,8 +118,8 @@
   },
   {
     "id": "6f7a965d-52ab-4bb2-afd9-6b1f73adbfd7",
-    "name": "Pitabrote",
-    "pluralName": null,
+    "name": "Pitabrot",
+    "pluralName": "Pitabrote",
     "description": "",
     "extras": {},
     "labelId": null,
@@ -131,7 +131,7 @@
   },
   {
     "id": "c29b3101-c22d-4aa2-95b2-3be6e85d003b",
-    "name": "Kräutermischung ",
+    "name": "Kräutermischung",
     "pluralName": null,
     "description": "",
     "extras": {},
