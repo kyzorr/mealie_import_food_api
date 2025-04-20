@@ -2,7 +2,7 @@ import requests
 import json
 
 # Konfiguration
-MEALIE_URL = "<your_URL"  # Passe ggf. die URL an
+MEALIE_URL = "<your_URL>"  # Passe ggf. die URL an
 API_KEY = "<your_API_KEY>"              # Trage hier deinen API-Key ein
 EXPORT_FILE = "mealie_foods_export_de_DE.json"
 
