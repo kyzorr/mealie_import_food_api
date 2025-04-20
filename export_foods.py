@@ -8,7 +8,7 @@ load_dotenv()
 # Konfiguration
 MEALIE_URL = os.getenv("MEALIE_URL") 
 API_KEY = os.getenv("API_KEY") 
-EXPORT_FILE = "mealie_foods_export_de_DE.json"
+EXPORT_FILE = "mealie_foods_export.json"
 
 headers = {
     "Authorization": f"Bearer {API_KEY}",

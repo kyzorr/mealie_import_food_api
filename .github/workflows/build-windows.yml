@@ -42,4 +42,23 @@ jobs:
       with:
         name: mealie_import_exe
         path: dist/Food_import.exe
+#export  
+    - name: Create ZIP with exe and .env.example Food_export
+      run: |
+        powershell Compress-Archive -Path dist/Food_export.exe, .env.example -DestinationPath dist/Food_export_package.zip
+    
+    - name: Upload ZIP artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: mealie_export_package
+        path: dist/Food_export_package.zip
+#import
+    - name: Create ZIP with exe and .env.example Food_import
+      run: |
+        powershell Compress-Archive -Path dist/Food_import.exe, .env.example -DestinationPath dist/Food_import_package.zip
       
+    - name: Upload ZIP artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: mealie_import_package
+        path: dist/Food_import_package.zip
