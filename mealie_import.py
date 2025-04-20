@@ -1,8 +1,13 @@
 import json
 import requests
+import os
+from dotnev import load_dotenv
 
-MEALIE_URL = "<YOUR_MEALIE_URL>"
-API_KEY = "<YOUR_API_KEY>"
+load_dotenv()
+
+# Konfiguration
+MEALIE_URL = os.getenv("MEALIE_URL") 
+API_KEY = os.getenv("API_KEY") 
 JSON_URL = "https://raw.githubusercontent.com/mealie-recipes/mealie/refs/heads/mealie-next/mealie/repos/seed/resources/foods/locales/de-DE.json" #original language json -> https://github.com/mealie-recipes/mealie/tree/mealie-next/mealie/repos/seed/resources/foods/locales
 
 headers = {

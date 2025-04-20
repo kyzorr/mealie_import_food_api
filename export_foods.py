@@ -1,9 +1,13 @@
 import requests
 import json
+import os
+from dotnev import load_dotenv
+
+load_dotenv()
 
 # Konfiguration
-MEALIE_URL = "<your_URL>"  # Passe ggf. die URL an
-API_KEY = "<your_API_KEY>"              # Trage hier deinen API-Key ein
+MEALIE_URL = os.getenv("MEALIE_URL") 
+API_KEY = os.getenv("API_KEY") 
 EXPORT_FILE = "mealie_foods_export_de_DE.json"
 
 headers = {
